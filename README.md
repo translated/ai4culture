@@ -11,7 +11,7 @@ docker image ls -a
 
 # Run the docker image
 docker run \
-  -e VITE_APP_TITLE=ReactStarter \
+  -e VITE_APP_TITLE= \
   -e VITE_API_ENDPOINT= \
   ai4europeana-frontend
 ```
@@ -26,7 +26,7 @@ docker image ls -a
 
 # Run the docker image
 docker run \
-  -e VITE_APP_TITLE=ReactStarter \
+  -e VITE_APP_TITLE= \
   -e VITE_API_ENDPOINT= \
   -e VITE_OPEN_SOURCE_URL= \
   ai4europeana-subplayer
