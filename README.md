@@ -161,6 +161,7 @@ EUROPEANA_OPENID_REALM_URL='https://auth.europeana.eu/auth/realms/europeana'
 EUROPEANA_OPENID_RESOURCE='https://auth.europeana.eu/auth/realms/europeana/protocol/openid-connect'
 EUROPEANA_ANNOTATIONS_URL=https://annotation-api.acceptance.eanadev.org/annotation/
 
+# Used for server errors monitoring
 SENTRY_DSN=
 SENTRY_ENVIRONMENT= (development/staging/production)
 ```
