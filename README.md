@@ -1,7 +1,7 @@
 # Ai4Europeana Application
-Repository containing the docker images for europeana Backend and Frontend
+Repository containing the docker images for europeana Backend and Frontends
 
-# Frontend
+# Frontend [link-docker](https://github.com/humanstech/ai4europeana/releases/download/v0.1.0-alpha/ai4europeana-frontend.tar)
 
 ### Start Docker
 ```shell
@@ -13,10 +13,17 @@ docker image ls -a
 docker run \
   -e VITE_APP_TITLE= \
   -e VITE_API_ENDPOINT= \
+  -e VITE_OPEN_SOURCE_URL= \
   ai4europeana-frontend
 ```
 
-# Subplayer (platform for video subtitling)
+`VITE_APP_TITLE`: used to define the react app title
+
+`VITE_API_ENDPOINT`: the *backend* endpoint
+
+`VITE_OPEN_SOURCE_URL`: endpoint to the *subplayer*
+
+# Subplayer [link-docker](https://github.com/humanstech/ai4europeana/releases/download/v0.1.0-alpha/ai4europeana-subplayer.tar) (platform for video subtitling)
 
 ### Start Docker
 ```shell
@@ -26,13 +33,13 @@ docker image ls -a
 
 # Run the docker image
 docker run \
-  -e VITE_APP_TITLE= \
-  -e VITE_API_ENDPOINT= \
-  -e VITE_OPEN_SOURCE_URL= \
+  -e VITE_APP_ENDPOINT= \
   ai4europeana-subplayer
 ```
 
-# Backend
+`VITE_APP_ENDPOINT`: the *backend* endpoint
+
+# Backend [link-docker](https://github.com/humanstech/ai4europeana/releases/download/v0.1.0-alpha/ai4europeana-backend.tar)
 
 ### Start Docker
 ```shell
@@ -83,21 +90,23 @@ docker run \
   ai4europeana-backend
 ```
 
-### Essential Envs in order to run the project with the open source version
+### Essential Envs in order to run the backend with explanation
 
 ```dotenv
 ### Essential Adonis Envs:
 PORT=80
 HOST=0.0.0.0
 NODE_ENV=development/staging/production
-APP_KEY=UUID
+APP_KEY=
 APP_NAME=
 DRIVE_DISK=local
 CACHE_VIEWS=true/false
 STORAGE_DISK=local/s3
 
+# Frontend endpoint
 FRONTEND_URL=
 
+# AWS S3 connection configuration
 S3_KEY=
 S3_SECRET=
 S3_BUCKET=
@@ -105,6 +114,7 @@ S3_REGION=
 S3_ENDPOINT=
 S3_CLOUDFRONT_URL=
 
+# Database configuration
 DB_CONNECTION=
 DB_HOST=
 DB_PORT=
@@ -112,24 +122,30 @@ DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
 
+# SMTP server configuration (Used for sending emails)
 SMTP_HOST=
 SMTP_PORT=
 SMTP_USERNAME=
 SMTP_PASSWORD=
 SMTP_SENDER=
 
+# FBK endpoint used to generate automatically subtitles for a video in the desired target languages
 FBK_API_URL=
 
+# Used to generate the hash that allows to access a private event or video
 PRIVATE_EVENT_SECRET=
 PRIVATE_JOB_SECRET=
 
 EVENT_INVITATION_EXPIRES_AFTER_HOURS=24
 INVITE_TOKEN_EXPIRE_AFTER_HOURS=24
 
+# Used to retrieve videos from the europeana platform
 EUROPEANA_ENDPOINT_API=https://api.europeana.eu/record/v2/search.json
 
-EUROPEANA_ENDPOINT_API_KEY= # Api key for 'https://api.europeana.eu/record/v2/search.json' endpoint
+# Api key for 'https://api.europeana.eu/record/v2/search.json' endpoint
+EUROPEANA_ENDPOINT_API_KEY= 
 
+# Openid details to enable SSO with the europeana provider
 EUROPEANA_CLIENT_ID=
 EUROPEANA_CLIENT_SECRET=
 EUROPEANA_API_KEY=
@@ -139,18 +155,11 @@ EUROPEANA_TOKEN_SECRET=
 ### Optional Envs with default or nullable values
 
 ```dotenv
+# Used for SSO login with the europeana provider
 EUROPEANA_OPENID_SCOPE='openid email profile annotations'
 EUROPEANA_OPENID_REALM_URL='https://auth.europeana.eu/auth/realms/europeana'
 EUROPEANA_OPENID_RESOURCE='https://auth.europeana.eu/auth/realms/europeana/protocol/openid-connect'
 EUROPEANA_ANNOTATIONS_URL=https://annotation-api.acceptance.eanadev.org/annotation/
-
-EUROPEANA_ENDPOINT_API=https://api.europeana.eu/record/v2/search.json
-
-SUB_PLATFORM=subplayer (subplayer/matesub)
-
-MATESUB_KEY=
-MATESUB_URL=
-MATESUB_API_USER_EMAIL=
 
 SENTRY_DSN=
 SENTRY_ENVIRONMENT= (development/staging/production)
