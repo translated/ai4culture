@@ -44,7 +44,7 @@ sh build_and_deploy.sh http://api.europeana.com 3001
 4. The sub-player is server by an nginx server and can be accessed on `http://localhost:<port>`
 
 ## Backend
-- [link-docker-image-registry](public.ecr.aws/k2u7h0h2/humans-europeana-backend)
+- [link-docker-image-registry](public.ecr.aws/k2u7h0h2/humans-europeana-backend:v1.1.3)
 - Handles the data for both the main client and the sub-player
 
 ### Start Docker
