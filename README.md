@@ -13,22 +13,22 @@ Repository containing the docker images for europeana Backend and Frontends
 - [Sub-player](#sub-player) - Platform for video subtitling
 - [Backend](#backend) - Handles the data for both the main client and the sub-player
 
-## Frontend 
+## Frontend
 - [link-zip](https://github.com/humanstech/ai4europeana/releases/download/v0.1.2/ai4europeana-fe.zip) The zip contains the source code for the frontend client
 
 ### Start Docker
 1. unzip the file
 2. run the following command in the unzipped folder
 ```shell
-sh build_and_deploy.sh <app_name> <api_url> <port>
+sh build_and_deploy.sh <api_url> <port>
 
-# Example 
-sh build_and_deploy.sh Ai4Europeana http://api.europeana.com 3000
+# Example
+sh build_and_deploy.sh http://api.europeana.com 3000
 ```
 3. This will build the docker image and run it on the specified port
 4. The frontend is server by an nginx server and can be accessed on `http://localhost:<port>`
 
-## Sub-player 
+## Sub-player
 - [link-zip](https://github.com/humanstech/ai4europeana/releases/download/v0.1.2/ai4europeana-subtitler.zip) (platform for video subtitling) The zip contains the source code for the frontend sub-player
 
 ### Start Docker
@@ -43,7 +43,7 @@ sh build_and_deploy.sh http://api.europeana.com 3001
 3. This will build the docker image and run it on the specified port
 4. The sub-player is server by an nginx server and can be accessed on `http://localhost:<port>`
 
-## Backend 
+## Backend
 - [link-docker-image-registry](public.ecr.aws/k2u7h0h2/humans-europeana-backend)
 - Handles the data for both the main client and the sub-player
 
