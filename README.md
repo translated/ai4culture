@@ -1,20 +1,19 @@
-# Ai4Europeana Application
-Repository containing the docker images for europeana Backend and Frontends
+# AI4Culture Subtitler
+Repository containing the docker images for AI4Culture Subtitler Backend and Frontends
 
 ## Requirements
-1. `Mysql` database for the backend
-2. `S3` bucket for file saving
-3. `Smtp` server for sending emails
-4. `FBK` for subtitle generation
-5. For the sign-in with europeana you must have the credentials from `Europeana` to enable `SSO`
+1. `MySQL` database for the backend.
+2. `AWS S3` bucket for file saving.
+3. `SMTP` server for sending emails.
+4. `FBK service API` for subtitle generation.
 
 ## Components
-- [Frontend](#frontend) - Main webapp client for europeana
-- [Sub-player](#sub-player) - Platform for video subtitling
-- [Backend](#backend) - Handles the data for both the main client and the sub-player
+- [Client](#client) - WebApp
+- [Sub-Player](#sub-player) - Tool for Video Subtitling
+- [Server](#server) - Web Server
 
-## Frontend
-- [link-zip](https://github.com/humanstech/ai4europeana/releases/download/v0.1.2/ai4europeana-fe.zip) The zip contains the source code for the frontend client
+## Client
+- [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.2/ai4europeana-fe.zip) The zip contains the source code for the frontend client
 
 ### Start Docker
 1. unzip the file
@@ -29,7 +28,7 @@ sh build_and_deploy.sh http://api.europeana.com 3000
 4. The frontend is server by an nginx server and can be accessed on `http://localhost:<port>`
 
 ## Sub-player
-- [link-zip](https://github.com/humanstech/ai4europeana/releases/download/v0.1.2/ai4europeana-subtitler.zip) (platform for video subtitling) The zip contains the source code for the frontend sub-player
+- [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.2/ai4europeana-subtitler.zip) (platform for video subtitling) The zip contains the source code for the frontend sub-player
 
 ### Start Docker
 1. unzip the file
@@ -43,8 +42,8 @@ sh build_and_deploy.sh http://api.europeana.com 3001
 3. This will build the docker image and run it on the specified port
 4. The sub-player is server by an nginx server and can be accessed on `http://localhost:<port>`
 
-## Backend
-- [link-docker-image-registry](public.ecr.aws/k2u7h0h2/humans-europeana-backend:v1.1.3)
+## Server
+- [ECR Image](public.ecr.aws/k2u7h0h2/humans-europeana-backend:v1.1.3)
 - Handles the data for both the main client and the sub-player
 
 ### Start Docker
@@ -99,10 +98,9 @@ docker run \
   docker run -e-file .env public.ecr.aws/k2u7h0h2/humans-europeana-backend:v1.1.2
 ```
 
-### Essential Envs in order to run the backend
+### Essential environment variables needed to run the server
 
 ```dotenv
-### Essential backend Envs:
 PORT=80
 HOST=0.0.0.0
 NODE_ENV=development/staging/production
@@ -166,7 +164,7 @@ EUROPEANA_CLIENT_SECRET=
 EUROPEANA_TOKEN_SECRET= # Used to encrypt europeana tokens, can be any string
 ```
 
-### Optional Envs with default or optional values
+### Optional environment variables with default or optional values
 ```dotenv
 # Misc configuration for europeana integration
 EUROPEANA_OPENID_SCOPE='openid email profile annotations'
