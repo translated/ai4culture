@@ -13,7 +13,7 @@ Repository containing the docker images for AI4Culture Subtitler Backend and Fro
 - [Server](#server) - Web Server
 
 ## Client
-- [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.2/ai4europeana-fe.zip) The zip contains the source code for the frontend client
+- [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.3/ai4europeana-fe.zip) The zip contains the source code for the frontend client
 
 ### Start Docker
 1. unzip the file
@@ -28,7 +28,7 @@ sh build_and_deploy.sh http://api.europeana.com 3000
 4. The frontend is server by an nginx server and can be accessed on `http://localhost:<port>`
 
 ## Sub-player
-- [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.2/ai4europeana-subtitler.zip) (platform for video subtitling) The zip contains the source code for the frontend sub-player
+- [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.3/ai4europeana-subtitler.zip) (platform for video subtitling) The zip contains the source code for the frontend sub-player
 
 ### Start Docker
 1. unzip the file
