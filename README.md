@@ -1,11 +1,11 @@
 # AI4Culture Subtitler
-Repository containing the docker images for AI4Culture Subtitler Backend and Frontends
+Repository containing the docker images for AI4Culture Subtitles Manager, Backend and Frontends.
 
 ## Requirements
 1. `MySQL` database for the backend.
 2. `AWS S3` bucket for file saving.
 3. `SMTP` server for sending emails.
-4. `FBK service API` for subtitle generation.
+4. `Subtitler service API endpoint` for subtitle generation (e.g. [FBK Service](https://github.com/hlt-mt/FBK-subtitler)).
 
 ## Components
 - [Client](#client) - WebApp
