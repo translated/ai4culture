@@ -1,4 +1,4 @@
-# AI4Culture Subtitler
+# AI4Culture Subtitles Manager
 Repository containing the docker images for AI4Culture Subtitles Manager, Backend and Frontends.
 
 ## Requirements
