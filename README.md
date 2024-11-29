@@ -8,12 +8,12 @@ Repository containing the docker images for AI4Culture Subtitles Manager, Backen
 4. `Subtitler service API endpoint` for subtitle generation (e.g. [FBK Service](https://github.com/hlt-mt/FBK-subtitler)).
 
 ## Components
-- [Client](#client) - WebApp
-- [Sub-Player](#sub-player) - Tool for Video Subtitling
-- [Server](#server) - Web Server
+- [Client](#subtitles-manager) - Subtitles Manager
+- [Video Subtitling Tool](#subtitling-tool) - Video Subtitling Tool
+- [Server](#web-server) - Web Server
 
-## Client
-- [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.3/ai4europeana-fe.zip) The zip contains the source code for the frontend client
+## Subtitles Manager
+- [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.3/ai4europeana-fe.zip) The zip contains the source code for the Subtitles Manager
 
 ### Start Docker
 1. unzip the file
@@ -27,7 +27,7 @@ sh build_and_deploy.sh http://api.europeana.com 3000
 3. This will build the docker image and run it on the specified port
 4. The frontend is server by an nginx server and can be accessed on `http://localhost:<port>`
 
-## Sub-player
+## Subtitling-Tool
 - [Source code](https://github.com/translated/ai4culture/releases/download/v1.0.3/ai4europeana-subtitler.zip) (platform for video subtitling) The zip contains the source code for the frontend sub-player
 
 ### Start Docker
@@ -42,7 +42,7 @@ sh build_and_deploy.sh http://api.europeana.com 3001
 3. This will build the docker image and run it on the specified port
 4. The sub-player is server by an nginx server and can be accessed on `http://localhost:<port>`
 
-## Server
+## Web-Server
 - [ECR Image](public.ecr.aws/k2u7h0h2/humans-europeana-backend:v1.1.3)
 - Handles the data for both the main client and the sub-player
 
@@ -95,7 +95,7 @@ docker run \
     public.ecr.aws/k2u7h0h2/humans-europeana-backend:v1.1.2
 
   # You can also create a .env file with the following content and run the docker image with the following command
-  docker run -e-file .env public.ecr.aws/k2u7h0h2/humans-europeana-backend:v1.1.2
+  docker run -e-file .env public.ecr.aws/k2u7h0h2/humans-europeana-backend:v1.1.3
 ```
 
 ### Essential environment variables needed to run the server
@@ -142,7 +142,7 @@ SMTP_USERNAME=
 SMTP_PASSWORD=
 SMTP_SENDER= # Email address used to send emails
 
-# FBK endpoint used to generate automatically subtitles for a video in the desired target languages
+# Subtitler service API endpoint used to generate automatically subtitles for a video in the desired target languages
 FBK_API_URL=
 
 # Used to generate the hash that allows to access a private event or video
@@ -175,7 +175,7 @@ EUROPEANA_ANNOTATIONS_URL=https://annotation-api.acceptance.eanadev.org/annotati
 # Used to retrieve videos from the europeana platform
 EUROPEANA_ENDPOINT_API=https://api.europeana.eu/record/v2/search.json
 
-# Used for server errors monitoring
+Used for server errors monitoring
 SENTRY_DSN=
 SENTRY_ENVIRONMENT=(development/staging/production)
 ```
